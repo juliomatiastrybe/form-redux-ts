@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Select from '../components/Select';
@@ -25,6 +26,8 @@ function PersonalForm() {
   });
   const { name, email, cpf, address, city, uf } = form;
 
+  const navigate = useNavigate();
+
   const handleChange = (
     { target }: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
@@ -37,6 +40,7 @@ function PersonalForm() {
       onSubmit={ (e) => {
         e.preventDefault();
         console.log('Ao clicar, envie a informação do formulário');
+        navigate('/professional-form');
       } }
     >
       <h1 className="title">Informações Pessoais</h1>

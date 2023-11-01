@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 import Button from '../components/Button';
@@ -11,6 +12,7 @@ function ProfessionalForm() {
     description: '',
   });
   const { resume, role, description } = form;
+  const navigate = useNavigate();
 
   const handleChange = (
     { target }: React.ChangeEvent<
@@ -26,6 +28,7 @@ function ProfessionalForm() {
       onSubmit={ (e) => {
         e.preventDefault();
         console.log('Ao clicar, envie a informação do formulário');
+        navigate('/form-display');
       } }
     >
       <h1 className="title">Informações Profissionais</h1>
