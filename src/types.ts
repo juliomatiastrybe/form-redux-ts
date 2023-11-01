@@ -1,3 +1,6 @@
+export const PUT_PERSONAL_DATA = 'PUT_PERSONAL_DATA';
+export const PUT_PROFISSIONAL_DATA = 'PUT_PROFISSIONAL_DATA';
+
 export type PersonalType = {
   name: string,
   email: string,
@@ -19,11 +22,11 @@ export type GlobalStateType = {
 };
 
 export type PersonalAction = {
-  type: string
+  type: typeof PUT_PERSONAL_DATA
   payload: PersonalType
 };
 
 export type ProfissionalAction = {
-  type: string
+  type: typeof PUT_PROFISSIONAL_DATA
   payload: ProfessionalType
 };

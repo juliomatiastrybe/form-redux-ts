@@ -1,9 +1,11 @@
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Select from '../components/Select';
+import { putPersonalData } from '../redux/actions';
 
 const UF_LIST = [
   'Rio de Janeiro',
@@ -26,6 +28,8 @@ function PersonalForm() {
   });
   const { name, email, cpf, address, city, uf } = form;
 
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const handleChange = (
@@ -40,6 +44,7 @@ function PersonalForm() {
       onSubmit={ (e) => {
         e.preventDefault();
         console.log('Ao clicar, envie a informação do formulário');
+        dispatch(putPersonalData(form));
         navigate('/professional-form');
       } }
     >

@@ -1,7 +1,5 @@
-import { PersonalType, ProfessionalType } from '../../types';
-
-export const PUT_PERSONAL_DATA = 'PUT_PERSONAL_DATA';
-export const PUT_PROFISSIONAL_DATA = 'PUT_PROFISSIONAL_DATA';
+import { PUT_PERSONAL_DATA,
+  PUT_PROFISSIONAL_DATA, PersonalType, ProfessionalType } from '../../types';
 
 export const putPersonalData = (personalData: PersonalType) => ({
   type: PUT_PERSONAL_DATA,

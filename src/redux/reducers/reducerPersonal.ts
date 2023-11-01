@@ -1,4 +1,4 @@
-import { PersonalAction } from '../../types';
+import { PUT_PERSONAL_DATA, PersonalAction } from '../../types';
 
 const INITIAL_STATE = {
   name: '',
@@ -9,6 +9,16 @@ const INITIAL_STATE = {
   uf: '',
 };
 
-const reducerPersonal = (state = INITIAL_STATE, action: PersonalAction) => state;
+const reducerPersonal = (state = INITIAL_STATE, action: PersonalAction) => {
+  switch (action.type) {
+    case PUT_PERSONAL_DATA:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 export default reducerPersonal;
