@@ -1,52 +1,62 @@
+import { useSelector } from 'react-redux';
+import { GlobalStateType } from '../types';
+
 function FormDisplay() {
-  // Recupere as informações do seu estado criado no Redux
+  const { name, address, city, cpf, email, uf } = useSelector(
+    (state: GlobalStateType) => state.personalData,
+  );
+
+  const { description, resume, role } = useSelector(
+    (state: GlobalStateType) => state.professionalData,
+  );
+
   return (
     <section>
       <h1>Dados Enviados</h1>
       <div>
         Nome:
         {' '}
-        {/* { name } */}
+        { name }
       </div>
       <div>
         Email:
         {' '}
-        {/* { email } */}
+        { email }
       </div>
       <div>
         CPF:
         {' '}
-        {/* { cpf } */}
+        { cpf }
       </div>
       <div>
         Endereço:
         {' '}
-        {/* { address } */}
+        { address }
       </div>
       <div>
         Cidade:
         {' '}
-        {/* { city } */}
+        { city }
       </div>
       <div>
         Estado:
         {' '}
-        {/* { uf } */}
+        { uf }
       </div>
       <div>
         Currículo:
         {' '}
-        {/* { resume } */}
+        { resume }
       </div>
       <div>
         Cargo:
         {' '}
-        {/* { role } */}
+        { role }
       </div>
       <div>
         Descrição do cargo:
         {' '}
-        {/* { description } */}
+        { description }
       </div>
     </section>
   );

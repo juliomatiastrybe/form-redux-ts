@@ -1,18 +1,17 @@
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Input from '../components/Input';
 import TextArea from '../components/TextArea';
 import Button from '../components/Button';
 import { putProfissionalData } from '../redux/actions';
+import { GlobalStateType } from '../types';
 
 function ProfessionalForm() {
-  const [form, setForm] = useState({
-    resume: '',
-    role: '',
-    description: '',
-  });
+  const initialPersonal = useSelector((state: GlobalStateType) => state.professionalData);
+
+  const [form, setForm] = useState(initialPersonal);
   const { resume, role, description } = form;
   const navigate = useNavigate();
   const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { PUT_PERSONAL_DATA, PersonalAction } from '../../types';
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
   name: '',
   email: '',
   cpf: '',

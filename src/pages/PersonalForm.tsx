@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import Select from '../components/Select';
 import { putPersonalData } from '../redux/actions';
+import { GlobalStateType } from '../types';
 
 const UF_LIST = [
   'Rio de Janeiro',
@@ -18,14 +19,9 @@ const UF_LIST = [
 ];
 
 function PersonalForm() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    cpf: '',
-    address: '',
-    city: '',
-    uf: '',
-  });
+  const initialPersonal = useSelector((state: GlobalStateType) => state.personalData);
+
+  const [form, setForm] = useState(initialPersonal);
   const { name, email, cpf, address, city, uf } = form;
 
   const dispatch = useDispatch();
